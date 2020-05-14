@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-sm bg-dark">
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a routerLink="/employees" class="nav-link" routerLinkActive="active">Employee List</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/add" class="nav-link" routerLinkActive="active">Add Employee</a>
+    </li>
+    
+  </ul>
+
+  <button class="btn btn-light btn" (click)="handleLogout()">Logout</button>
+</nav>
+
+<div class=" banner-image">
+  <div class="container pt-4">
+  <div class="card">
+    <div class="card-body">
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h2>Employee List</h2>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>employeeid</th>
+                <th>employeename</th>
+                <th>employeedesignation</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let employee of employees">
+                <td>{{employee.employeeId}}</td>
+                <td>{{employee.employeeName}}</td>
+                <td>{{employee.employeeDesignation}}</td>
+                <td>   
+                  <a routerLink="/update/{{employee.employeeId}}" class= "btn btn-warning">Update</a>
+                  <button (click)="deleteEmployee(employee.employeeId)" class="btn btn-danger ml-2 mr-2">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-sm bg-dark">
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a routerLink="/employees" class="nav-link" routerLinkActive="active">Employee List</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/add" class="nav-link" routerLinkActive="active">Add Employee</a>
+    </li>
+    
+  </ul>
+
+  <button class="btn btn-light btn" (click)="handleLogout()">Logout</button>
+</nav>
+
+<div class=" banner-image">
+  <div class="container pt-4">
+    <h3>Create Employee</h3>
+    <div [hidden]="submitted" style="width: 400px;">
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name">employeeid</label>
+          <input type="text" class="form-control" id="employeeId" required [(ngModel)]="employee.employeeId" name="employeeId">
+        </div>
+    
+        <div class="form-group">
+          <label for="name">employeename</label>
+          <input type="text" class="form-control" id="employeeName" required [(ngModel)]="employee.employeeName" name="employeeName">
+        </div>
+    
+        <div class="form-group">
+          <label for="name">employeedesignation</label>
+          <input type="text" class="form-control" id="employeeDesignation" required [(ngModel)]="employee.employeeDesignation" name="employeeDesignation">
+        </div>
+    
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+    </div>
+    
+    <div [hidden]="!submitted">
+      <h4>You submitted successfully!</h4>
+      <a routerLink="/employees" class="nav-link" routerLinkActive="active">Go to Employee List</a>
+      <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+    </div>
+  </div>
+</div>
